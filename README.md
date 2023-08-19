@@ -25,3 +25,12 @@ I also added few more features such as:
   # Add this on install after the repo exists (make sure it runs only once)
   !echo -n {start_colab} > WEBUI_REPO_HERE/static/colabTimer.txt
 ```
+
+In Webui:
+
+Open webui's extensions tab > Install from URL > Copy and Paste this repo URL
+
+or you can also do:
+```sh
+git clone https://github.com/NoCrypt/ncpt_colab_timer WEBUI_REPO_HERE/extensions
+```
