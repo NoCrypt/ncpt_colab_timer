@@ -39,6 +39,21 @@ function updateTimer(el) {
   timeout = setTimeout(() => updateTimer(el), 1000);
 }
 
+function checkIgnoreUrls(){
+  // ignored urls may include : "paperspace", localhosts urls
+  const ignoredUrls = [
+    "paperspace",
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0"
+  ]
+
+  for(let i = 0; i < ignoredUrls.length; i++){
+    if(window.location.href.includes(ignoredUrls[i])) return true
+  }
+  return false
+}
+
 refreshTimer = (timerEl, notext = false) => {
   if (timeout) {
     clearTimeout(timeout);
@@ -104,7 +119,7 @@ onUiLoaded(function () {
   timerEl.style = "font-family: monospace;color: orange;";
   timerEl.innerText = "Connecting...";
   div2.appendChild(img);
-  if (window.location.href.indexOf("paperspace") == -1){
+  if (checkIgnoreUrls()){
     div2.appendChild(timerEl);
     mainDiv.appendChild(div2);
   }
@@ -205,6 +220,6 @@ onUiLoaded(function () {
   mainDiv.appendChild(toggleNSFWBlurDiv);
 
   quickSettings.parentNode.insertBefore(mainDiv, quickSettings.nextSibling);
-  if (window.location.href.indexOf("paperspace") == -1)
+  if (checkIgnoreUrls())
     refreshTimer(timerEl);
 });
