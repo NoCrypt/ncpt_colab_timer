@@ -104,7 +104,8 @@ onUiLoaded(function () {
   timerEl.style = "font-family: monospace;color: orange;";
   timerEl.innerText = "Connecting...";
   div2.appendChild(img);
-  div2.appendChild(timerEl);
+  if (window.location.href.indexOf("paperspace") == -1)
+    div2.appendChild(timerEl);
   mainDiv.appendChild(div2);
   div2.onclick = () => refreshTimer(timerEl);
 
@@ -203,5 +204,6 @@ onUiLoaded(function () {
   mainDiv.appendChild(toggleNSFWBlurDiv);
 
   quickSettings.parentNode.insertBefore(mainDiv, quickSettings.nextSibling);
-  refreshTimer(timerEl);
+  if (window.location.href.indexOf("paperspace") == -1)
+    refreshTimer(timerEl);
 });
