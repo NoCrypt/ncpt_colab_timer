@@ -106,7 +106,7 @@ onUiLoaded(function () {
   div2.appendChild(img);
   if (window.location.href.indexOf("paperspace") == -1)
     div2.appendChild(timerEl);
-  mainDiv.appendChild(div2);
+    mainDiv.appendChild(div2);
   div2.onclick = () => refreshTimer(timerEl);
 
   let audioMuteDiv = document.createElement("div");
