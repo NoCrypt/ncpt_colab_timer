@@ -49,9 +49,9 @@ function checkIgnoreUrls(){
   ]
 
   for(let i = 0; i < ignoredUrls.length; i++){
-    if(window.location.href.includes(ignoredUrls[i])) return true
+    if(window.location.href.includes(ignoredUrls[i])) return false
   }
-  return false
+  return true
 }
 
 refreshTimer = (timerEl, notext = false) => {
